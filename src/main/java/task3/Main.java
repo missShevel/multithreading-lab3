@@ -12,17 +12,22 @@ public class Main {
         journal.addGroup(ip02);
         journal.addGroup(ip03);
 
-        Teacher teacher = new Teacher("A", "A");
-        Teacher assistant1 = new Teacher("B", "B");
-        Teacher assistant2 = new Teacher("C", "C");
-        Teacher assistant3 = new Teacher("D", "D");
+        MarkThread teacher = new MarkThread(journal);
+        MarkThread assistant1 = new MarkThread(journal);
+        MarkThread assistant2 = new MarkThread(journal);
+        MarkThread assistant3 = new MarkThread(journal);
+
+        teacher.start();
+        assistant1.start();
+        assistant2.start();
+        assistant3.start();
 
         try {
-            teacher.addMarks(journal);
-            assistant1.addMarks(journal);
-            assistant2.addMarks(journal);
-            assistant3.addMarks(journal);
-        } catch(InterruptedException e) {
+            teacher.join();
+            assistant1.join();
+            assistant2.join();
+            assistant3.join();
+        }catch(InterruptedEx e) {
 
         }
 

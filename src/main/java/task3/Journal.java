@@ -12,12 +12,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Journal {
     public final List<Group> groups;
     private final HashMap<Student, ArrayBlockingQueue<Integer>> hashMap = new HashMap<>();
-    private final Lock lock;
     public Journal() {
         groups = new ArrayList<>();
-        lock = new ReentrantLock();
     }
-
 
     public void addGroup(Group group) {
         this.groups.add(group);
