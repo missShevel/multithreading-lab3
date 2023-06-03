@@ -27,7 +27,7 @@ public class Main {
             assistant1.join();
             assistant2.join();
             assistant3.join();
-        }catch(InterruptedEx e) {
+        } catch (InterruptedException e) {
 
         }
 
